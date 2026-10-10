@@ -33,16 +33,16 @@ class DatabaseSeeder extends Seeder
 
 
         $produk = [
-            ['Buku Tulis',   5000,  50],
-            ['Pulpen',       3000, 100],
-            ['Penggaris',    4000,  30],
-            ['Pensil 2B',    2500,  80],
-            ['Penghapus',    1500,  60],
-            ['Spidol',       8000,  0],
-            ['Buku Gambar', 10000,  25],
-            ['Lem Kertas',   6000,  40],
-            ['Gunting',     12000,  15],
-            ['Stabilo',     15000,  18],
+            ['Buku Tulis',   5000,  50, 'buku-tulis.jpg'],
+            ['Pulpen',       3000, 100, 'pulpen.jpg'],
+            ['Penggaris',    4000,  30, 'penggaris.jpg'],
+            ['Pensil 2B',    2500,  80, 'pensil-2b.jpg'],
+            ['Penghapus',    1500,  60, 'penghapus.jpg'],
+            ['Spidol',       8000,  0, 'spidol.jpg'],
+            ['Buku Gambar', 10000,  25, 'buku-gambar.jpg'],
+            ['Lem Kertas',   6000,  40, 'lem-kertas.jpg'],
+            ['Gunting',     12000,  15, 'gunting.jpg'],
+            ['Stabilo',     15000,  18, 'stabilo.jpg'],
         ];
 
         foreach ($produk as $i => $p) {
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
                 'nama_barang' => $p[0],
                 'harga'       => $p[1],
                 'stok'        => $p[2],
-                'gambar'      => 'https://placehold.co/120x120/1a57a0/ffffff?text=' . urlencode($p[0]),
+                'gambar'      => $p[3],
                 'deskripsi'   => 'Alat tulis berkualitas, ' . $p[0],
             ]);
         }

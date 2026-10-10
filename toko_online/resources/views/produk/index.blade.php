@@ -11,8 +11,12 @@
     <div class="grid">
         @foreach ($produk as $p)
             <div class="produk">
-                <img src="{{ $p->gambar ?: 'https://placehold.co/120x120?text=No+Image' }}"
-                     alt="{{ $p->nama_barang }}">
+                @php
+                    $src = $p->gambar
+                        ? (str_starts_with($p->gambar, 'http') ? $p->gambar : asset('images/' . $p->gambar))
+                        : asset('images/no-image.png');
+                @endphp
+                <img src="{{ $src }}" alt="{{ $p->nama_barang }}">
                 <h3>{{ $p->nama_barang }}</h3>
                 <div class="harga">{{ rupiah($p->harga) }}</div>
                 <div class="stok">Stok: {{ $p->stok }}</div>
