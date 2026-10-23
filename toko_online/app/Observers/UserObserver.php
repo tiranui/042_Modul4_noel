@@ -15,10 +15,10 @@ class UserObserver
         }
 
         Log::info('user.role.changed', [
-            'target_user_id' => $user->id,
-            'old_role' => $user->getRawOriginal('role'),
-            'new_role' => $user->role,
-            'actor_id' => Auth::id(),
+            'target_user_id' => $user->id_user,
+            'old_role'       => $user->getRawOriginal('role'),
+            'new_role'       => $user->role,
+            'actor_id'       => Auth::id(),
         ]);
     }
 }

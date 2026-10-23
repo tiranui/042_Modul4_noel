@@ -11,7 +11,14 @@ if (!function_exists('generate_id_user')) {
     function generate_id_user(): string
     {
         $last = \App\Models\User::orderByDesc('id_user')->first();
-        $num  = $last ? ((int) substr($last->id_user, 3)) + 1 : 1;
+
+        if (! $last) {
+            return 'USR00001';
+        }
+
+        $digits = preg_replace('/\D/', '', $last->id_user);
+        $num = $digits !== '' ? ((int) $digits) + 1 : 1;
+
         return 'USR' . str_pad($num, 5, '0', STR_PAD_LEFT);
     }
 }

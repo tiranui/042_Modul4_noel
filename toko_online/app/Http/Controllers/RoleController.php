@@ -13,7 +13,7 @@ class RoleController extends Controller
     public function index(): View
     {
         return view('admin.users', [
-            'users' => User::orderBy('id')->get(),
+            'users' => User::orderBy('id_user')->get(),
         ]);
     }
 
