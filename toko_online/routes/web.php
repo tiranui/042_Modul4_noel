@@ -34,3 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pesanan',         [OrderController::class, 'index'])->name('order.index');
     Route::get('/pesanan/{id}',    [OrderController::class, 'show'])->name('order.show');
 });
+
+Route::patch('/admin/users/{user}/role', [RoleController::class, 'update'])
+    ->middleware(['auth', 'can:manage-roles'])
+    ->name('admin.users.role.update');
